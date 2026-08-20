@@ -1,104 +1,86 @@
-````markdown
 # Online Merchandise Shop
 
-A full-stack e-commerce web platform built with PHP, MySQL, Bootstrap, the PayPal Checkout SDK, and PHPMailer. The repository provides a responsive customer-facing storefront alongside a comprehensive administrative dashboard for managing products, categories, promotional deals, customer reviews, and user accounts.
+A full-stack e-commerce web application built with PHP, MySQL, Bootstrap, PayPal Checkout SDK, and PHPMailer. The platform features a responsive storefront for customers and a comprehensive administrative dashboard for catalog, order, user, and deal management.
 
 ---
 
 ## Table of Contents
-
 - [Features](#features)
-  - [Storefront](#storefront)
+  - [Customer Storefront](#customer-storefront)
   - [Admin Panel](#admin-panel)
 - [Tech Stack](#tech-stack)
 - [Project Structure](#project-structure)
 - [Prerequisites](#prerequisites)
 - [Installation & Setup](#installation--setup)
 - [Configuration](#configuration)
-  - [Database](#database)
-  - [PayPal Checkout](#paypal-checkout)
-  - [Email & SMTP Settings](#email--smtp-settings)
 - [License](#license)
 
 ---
 
 ## Features
 
-### Storefront
-
-- **Product Browsing & Search:** Search items, filter by categories, and view product details.
-- **Promotions & Highlights:** Integrated daily deals slider and bestseller listings.
-- **Shopping Cart & Checkout:** Dynamic item quantity adjustments, total price calculation, and cart management.
-- **Payment Integration:** Secure checkout workflow powered by the **PayPal Checkout REST SDK**.
-- **Customer Authentication:** Registration, login, profile updates, and order history tracking.
-- **Password Recovery:** Automated password reset workflow using **PHPMailer**.
-- **Reviews & Feedback:** Write and submit ratings and product reviews.
-- **Contact Support:** Contact form integrated with automated email notifications.
+### Customer Storefront
+* **Product Catalog & Browsing:** Browse products by category, filter items, view details, and search across inventory.
+* **Promotions & Deals:** Daily deals carousel, bestsellers showcase, and promotional banners[cite: 1].
+* **Shopping Cart & Checkout:** Add/remove items, adjust quantities, and dynamic total calculation[cite: 1].
+* **Payment Integration:** Secure checkout powered by the **PayPal Checkout REST SDK**[cite: 1].
+* **User Authentication & Profiles:** User registration, login, profile management, and order history tracking[cite: 1].
+* **Password Recovery:** Automated reset password workflow via **PHPMailer**[cite: 1].
+* **Reviews & Ratings:** Submit product reviews and feedback[cite: 1].
+* **Contact & Inquiries:** Interactive contact form with automated email dispatch[cite: 1].
 
 ### Admin Panel
-
-- **Dashboard Overview:** Centralized analytics and summary metrics.
-- **Product Catalog CRUD:** Create, edit, list, and delete inventory items.
-- **Category Management:** Add and organize merchandise categories.
-- **Deals & Discounts:** Configure and manage daily deals and promotional banners.
-- **Order Processing:** Track order statuses, view shipping information, and manage fulfillment.
-- **Review Moderation:** Approve or remove user-submitted product reviews.
-- **User Management:** Manage customer accounts and administrative roles.
-- **Site Settings:** Global configuration panel for store-wide settings.
+* **Admin Dashboard:** High-level summary of store activity and metrics[cite: 1].
+* **Product Management:** Full CRUD (Create, Read, Update, Delete) operations for store listings and inventory[cite: 1].
+* **Category Management:** Create and modify product categories[cite: 1].
+* **Deals & Discounts:** Configure and manage daily deals and promotional offers[cite: 1].
+* **Order Management:** View orders, inspect customer shipping details, and track fulfillment status[cite: 1].
+* **Customer Review Moderation:** Approve and manage submitted customer feedback[cite: 1].
+* **User Administration:** Manage registered customer accounts and role permissions[cite: 1].
+* **Store Settings:** Customize site configurations and global store metadata[cite: 1].
 
 ---
 
 ## Tech Stack
 
-- **Backend:** PHP
-- **Database:** MySQL / MariaDB
-- **Frontend:** HTML5, CSS3, SCSS, JavaScript, jQuery, Bootstrap 4, OwlCarousel
-- **Dependency Manager:** Composer
-- **Key Packages:**
-  - `paypal/paypal-checkout-sdk`: PayPal REST API client
-  - `phpmailer/phpmailer`: Email handling via SMTP/OAuth
+* **Backend:** PHP (7.4+ / 8.x)[cite: 1]
+* **Database:** MySQL / MariaDB[cite: 1]
+* **Frontend:** HTML5, CSS3, SCSS, JavaScript, jQuery, Bootstrap 4, OwlCarousel[cite: 1]
+* **Dependency Manager:** Composer[cite: 1]
+* **Third-Party Libraries:**
+  * `paypal/paypal-checkout-sdk`: PayPal REST API integration[cite: 1]
+  * `phpmailer/phpmailer`: Transactional email delivery[cite: 1]
 
 ---
 
 ## Project Structure
 
 ```text
-├── admin/                         # Admin panel pages and dashboard logic
-│   ├── includes/                  # Admin authentication guards, navigation, and database configuration
-│   ├── upload/                    # Uploaded media assets (products, deals, logos)
-│   ├── category.php               # Category management
-│   ├── dashboard.php              # Administrative metrics
-│   ├── manage_deals.php           # Deal configurations
-│   ├── manage_orders.php          # Order management
-│   ├── manage_reviews.php         # Review moderation
-│   ├── post.php                   # Product inventory listings
-│   ├── settings.php               # System settings
-│   └── users.php                  # User account management
-├── css/                           # Frontend CSS stylesheets
-├── database/                      # SQL schema and seed files
-│   └── db_merchshop.sql           # Database dump
-├── functions/                     # Global utility functions
-│   └── functions.php              # Global PHP utility functions
-├── includes/                      # Frontend partials (navigation, footers, headers)
-│   └── config.php                 # Database connection configuration
-├── js/                            # Client-side JavaScript
-├── javascript/                    # Additional client-side scripts and vendor UI libraries
-├── lib/                           # Vendor UI tools (OwlCarousel, jQuery Easing)
-├── mail/                          # Contact form mail scripts
-├── scss/                          # Bootstrap and custom SCSS source files
-├── vendor/                        # Composer dependencies (PHPMailer, PayPal SDK)
-├── cart.php                       # Shopping cart page
-├── checkout.php                   # Order checkout screen
-├── forgot_password.php            # Password recovery request page
-├── handle_review.php              # Review submission handler
-├── index.php                      # Main landing page
-├── order_history.php              # Customer order history
-├── paypal_processor.php           # PayPal transaction handling
-├── product.php                    # Product catalog page
-├── reset_password.php             # Password reset screen
-├── verify_paypal.php              # PayPal payment verification handler
-└── viewdetail.php                 # Product details view
-````
+Online_Merchandise_Shop/
+├── admin/                     # Admin control panel and management scripts[cite: 1]
+│   ├── includes/              # Admin-specific navigation, config, and security guards[cite: 1]
+│   ├── upload/                # Uploaded product and banner media[cite: 1]
+│   ├── dashboard.php          # Main admin overview[cite: 1]
+│   ├── post.php               # Product inventory management[cite: 1]
+│   ├── manage_orders.php      # Order tracking[cite: 1]
+│   └── ...
+├── css/                       # Stylesheets and compiled CSS[cite: 1]
+├── database/
+│   └── db_merchshop.sql       # Database schema and initial seed data[cite: 1]
+├── functions/
+│   └── functions.php          # Global helper functions[cite: 1]
+├── includes/                  # Common frontend components (navbars, footers, sidebars)[cite: 1]
+├── js/ / javascript/          # Frontend script files and plugins[cite: 1]
+├── lib/                       # Vendor assets (OwlCarousel, jQuery easing)[cite: 1]
+├── mail/                      # PHPMailer handlers and contact form logic[cite: 1]
+├── scss/                      # Bootstrap and custom SCSS source files[cite: 1]
+├── vendor/                    # Composer dependencies[cite: 1]
+├── cart.php                   # Shopping cart page[cite: 1]
+├── checkout.php               # Checkout workflow[cite: 1]
+├── index.php                  # Homepage[cite: 1]
+├── paypal_processor.php       # PayPal order creation and capture handler[cite: 1]
+├── product.php                # Product catalog view[cite: 1]
+└── viewdetail.php             # Product details view[cite: 1]
 
 ---
 
